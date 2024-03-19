@@ -93,9 +93,14 @@ const vaciarComanda = () => {
 
 // Función para realizar la comanda
 const realizarComanda = () => {
-    alert('Pedido solicitado. ¡Gracias!');
-    vaciarComanda();
-};
+    Swal.fire({
+  position: "center",
+  icon: "success",
+  title: "Pedido solicitado. ¡Gracias!",
+  showConfirmButton: false,
+  timer: 1500
+});
+}    
 
 // Función para actualizar el local storage
 const actualizarLocalStorage = () => {
