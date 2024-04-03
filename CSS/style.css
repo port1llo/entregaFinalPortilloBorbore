@@ -29,7 +29,13 @@ main {
 #listaComanda li {
     margin-bottom: 10px;
 }
+.producto {
+    display: block;
+}
 
+.hidden {
+    display: none;
+}
 footer {
     background-color: #343a40;
     color: #ffffff;

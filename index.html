@@ -16,9 +16,18 @@
         <!-- Sección de productos en la Carta -->
         <section id="productosCarta">
             <h2>El Despacho Café - Carta</h2>
-            <div id="listaProductos" class="d-grid gap-2 d-md-block">
-                <button class="btn btn-outline-secondary" type="button">Café Solo</button>
-                <button class="btn btn-outline-secondary" type="button">Cafe Americano</button>
+            <div class="container text-center">
+                <!-- Botones de categoría desplegables -->
+                <div class="btn-group" role="group" aria-label="Categorías" id="categoriaProductos">
+                    <!-- Botones de categoría -->
+                    <button type="button" class="btn btn-primary btn-categoria" data-categoria="Cafes">Cafés</button>
+                    <button type="button" class="btn btn-primary btn-categoria" data-categoria="Tostadas">Tostadas</button>
+                    <button type="button" class="btn btn-primary btn-categoria" data-categoria="Tartas">Tartas</button>
+                    <button type="button" class="btn btn-primary btn-categoria" data-categoria="Desayunos">Desayunos</button>
+                    <button type="button" class="btn btn-primary btn-categoria" data-categoria="Tapas">Tapas</button>
+                </div>
+                <!-- Lista de productos -->
+                <div id="listaProductos" class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3"></div>
             </div>
         </section>
 
@@ -46,6 +55,8 @@
 
     <!-- Script JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./JavaScript/App.js"></script>
+    
+    <script src="./JavaScript/menu.js"></script>
+    <script src="./JavaScript/comanda.js"></script>
 </body>
 </html>

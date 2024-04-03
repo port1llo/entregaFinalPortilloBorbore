@@ -1,0 +1,142 @@
+[
+    {
+    "id": "1", 
+    "nombre": "Café Solo",
+    "tipo": "Cafes",
+   
+    "precio": 1.3, 
+    "cantidad": 100 
+    },    
+
+    { 
+    "id": "2", 
+    "nombre": "Cafe Americano",
+    "tipo": "Cafes",
+    
+    "precio": 1.3, 
+    "cantidad": 80 
+    },
+
+    {
+    "id": "3", 
+    "nombre": "Cortado",
+    "tipo": "Cafes",
+   
+    "precio": 1.3, 
+    "cantidad": 100 
+    },
+
+    { 
+    "id": "4", 
+    "nombre": "Cafe con Leche",
+    "tipo": "Cafes",
+    
+    "precio": 1.5, 
+    "cantidad": 250 
+    },
+
+    { 
+    "id": "5", 
+    "nombre": "Tostada de jamón y queso",
+    "tipo": "Tostadas",
+   
+    "precio": 2.5, 
+    "cantidad": 50 
+    },
+
+    { 
+    "id": "6", 
+    "nombre": "Tostada de aguacate",
+    "tipo": "Tostadas",
+    
+    "precio": 3, 
+    "cantidad": 40 },
+
+    { 
+    "id": "7", 
+    "nombre": "Tostada de tomate y aceite",
+    "tipo": "Tostadas",
+    
+    "precio": 2, 
+    "cantidad": 60 },
+      
+    { 
+    "id": "8", 
+    "nombre": "Tarta de manzana",
+    "tipo": "Tartas",
+   
+    "precio": 3.5, 
+    "cantidad": 20 
+    },
+
+    { 
+    "id": "9", 
+    "nombre": "Tarta de chocolate",
+    "tipo": "Tartas",
+    
+    "precio": 4, 
+    "cantidad": 15
+    },
+
+    { 
+    "id": "10", 
+    "nombre": "Tarta de queso",
+    "tipo": "Tartas",
+    
+    "precio": 3, 
+    "cantidad": 25 
+    },
+       
+    { 
+    "id": "11", 
+    "nombre": "Desayuno continental",
+    "tipo": "Desayunos",
+    
+    "precio": 7, 
+    "cantidad": 30
+    },
+
+    { 
+    "id": "12", 
+    "nombre": "Desayuno saludable", 
+    "tipo": "Desayunos",
+    
+    "precio": 8, 
+    "cantidad": 25
+    },
+
+    { 
+    "id": "13", 
+    "nombre": "Desayuno energético",
+    "tipo": "Desayunos",
+   
+    "precio": 6.5, 
+    "cantidad": 35
+    },
+    
+    { 
+    "id": "14", 
+    "nombre": "Patatas bravas",
+    "tipo": "Tapas",
+    "precio": 4, 
+    "cantidad": 40
+    },
+
+    { 
+    "id": "15", 
+    "nombre": "Calamares a la romana",
+    "tipo": "Tapas",
+      
+    "precio": 5, 
+    "cantidad": 35
+    },
+
+    { 
+    "id": "16", 
+    "nombre": "Ensaladilla rusa",
+    "tipo": "Tapas",
+    
+    "precio": 3.5, 
+    "cantidad": 45
+    }
+]
