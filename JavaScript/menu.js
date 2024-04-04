@@ -45,13 +45,13 @@ const renderizarProductos = () => {
             button.setAttribute('data-id', producto.id);
             button.textContent = producto.nombre;
 
-            //const img = document.createElement('img');
-            //img.src = producto.imagen;
-            //img.alt = producto.nombre;
-            //img.classList.add('producto-imagen');
+            const img = document.createElement('img');
+            img.src = producto.imagen;
+            img.alt = producto.nombre;
+            img.classList.add('producto-imagen');
 
             const div = document.createElement('div');
-            //div.appendChild(img);
+            div.appendChild(img);
             div.appendChild(button);
 
             const h3 = document.createElement('h3');
@@ -82,6 +82,7 @@ const renderizarProductos = () => {
             productosCategoria.forEach(producto => {
                 if (producto.style.display === 'none') {
                     producto.style.display = 'block';
+                    console.log(producto);
                 } else {
                     producto.style.display = 'none';
                 }
@@ -90,19 +91,34 @@ const renderizarProductos = () => {
     });
 };
 
+// Agregar evento de clic al botón de búsqueda
+document.querySelector('.input-group-append button').addEventListener('click', () => {
+    // Obtener el valor ingresado en el campo de búsqueda
+    const valorBusqueda = document.getElementById('buscar').value.toLowerCase().trim();
 
-// Eventos
-document.getElementById('listaProductos').addEventListener('click', (event) => {
-    if (event.target.classList.contains('realizarComanda')) {
-        const id = event.target.getAttribute('data-id');
-        agregarComanda(id);
-    }
+    // Recorrer los productos por categoría
+    const productosCategoria = document.querySelectorAll('.categoria');
+    productosCategoria.forEach(categoria => {
+        const productos = categoria.querySelectorAll('.realizarComanda');
+        productos.forEach(producto => {
+            // Obtener el nombre del producto y convertirlo a minúsculas para comparar
+            const nombreProducto = producto.textContent.toLowerCase();
+            // Mostrar solo los productos que coincidan con el texto de búsqueda
+            if (nombreProducto.includes(valorBusqueda)) {
+                producto.closest('.categoria').style.display = 'block';
+            } else {
+                producto.closest('.categoria').style.display = 'none';
+            }
+        });
+    });
 });
+
 
 
 document.getElementById('buscar').addEventListener('input', () => {
     renderizarComanda();
 });
+
 
 // Llamar a cargarDatosDesdeJSON al cargar la página
 window.onload = () => {

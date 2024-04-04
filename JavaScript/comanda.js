@@ -1,20 +1,35 @@
 // Variables globales
 let comanda = [];
 
-// Función para agregar un producto a la comanda
+/// Función para agregar un producto a la comanda
 const agregarComanda = (id) => {
     const productoEnComanda = productos.find(producto => producto.id === id);
-
+    console.log(productoEnComanda);
     if (productoEnComanda && productoEnComanda.cantidad > 0) {
+        // Verificar si el producto ya está en la comanda
+        const productoExistenteIndex = comanda.findIndex(item => item.id === productoEnComanda.id);
+       
+        if (productoExistenteIndex !== -1) {
+            // Si el producto ya está en la comanda, simplemente aumentar la cantidad
+            comanda[productoExistenteIndex].cantidad++;
+           
+        } else {
+            // Si el producto no está en la comanda, agregarlo
+            const productoComanda = {
+                id: productoEnComanda.id,
+                nombre: productoEnComanda.nombre,
+                precio: productoEnComanda.precio,
+                cantidad: 1 
+            };
+            comanda.push(productoComanda);
+            
+        }
+
+        // Decrementar la cantidad disponible del producto
         productoEnComanda.cantidad--;
 
-        const productoComanda = {
-            id: productoEnComanda.id,
-            nombre: productoEnComanda.nombre,
-            precio: productoEnComanda.precio
-        };
+      
 
-        comanda.push(productoComanda);
 
         renderizarComanda();
         actualizarLocalStorage();
@@ -23,6 +38,7 @@ const agregarComanda = (id) => {
     }
 };
 
+
 // Función para renderizar la comanda
 const renderizarComanda = () => {
     const listaComanda = document.getElementById('listaComanda');
@@ -30,25 +46,43 @@ const renderizarComanda = () => {
 
     listaComanda.innerHTML = '';
 
-    const terminoBusqueda = document.getElementById('buscar').value.toLowerCase();
-    const productosFiltrados = comanda.filter(producto => producto.nombre.toLowerCase().includes(terminoBusqueda));
+    let total = 0;
 
-    if (productosFiltrados.length > 0) {
-        productosFiltrados.forEach(producto => {
-            const li = document.createElement('li');
-            li.textContent = `${producto.nombre} - ${producto.precio} e`;
-            listaComanda.appendChild(li);
-        });
-
-        const total = productosFiltrados.reduce((sum, producto) => sum + producto.precio, 0);
-        totalElemento.textContent = total;
-    } else {
+    comanda.forEach((producto, index) => {
         const li = document.createElement('li');
-        li.textContent = 'Pregunta qué quieren beber?';
+        const cantidad = producto.cantidad;
+        const subtotal = producto.precio * producto.cantidad;
+        li.textContent = `${producto.nombre} - ${subtotal} e (${cantidad}x)`;
+
+        // Botón para eliminar el producto de la comanda
+        const eliminarBtn = document.createElement('button');
+        eliminarBtn.textContent = 'Borrar Línea';
+        eliminarBtn.classList.add('boton-borrar-linea');
+        eliminarBtn.addEventListener('click', () => eliminarProductoComanda(index));
+        li.appendChild(eliminarBtn);
+
         listaComanda.appendChild(li);
-        totalElemento.textContent = '';
-    }
+        total += subtotal;
+    });
+
+    totalElemento.textContent = total;
 };
+
+// Función para eliminar un producto de la comanda
+const eliminarProductoComanda = (index) => {
+    // Incrementar la cantidad disponible del producto
+    const productoAEliminar = comanda[index];
+    const productoCorrespondiente = productos.find(producto => producto.id === productoAEliminar.id);
+    productoCorrespondiente.cantidad += productoAEliminar.cantidad;
+
+    // Eliminar el producto de la comanda
+    comanda.splice(index, 1);
+
+    renderizarComanda();
+    actualizarLocalStorage();
+};
+
+
 
 // Función para vaciar la Comanda
 const vaciarComanda = () => {
@@ -97,4 +131,3 @@ document.getElementById('realizarComanda').addEventListener('click', () => {
 document.getElementById('buscar').addEventListener('input', () => {
     renderizarComanda();
 });
-

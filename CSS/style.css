@@ -36,6 +36,37 @@ main {
 .hidden {
     display: none;
 }
+.producto-imagen{
+    max-width: 100px;
+    height: auto; 
+}
+
+#listaComanda li {
+    margin-bottom: 10px;
+}
+
+
+
+#listaComanda span {
+    margin-right: 5px; /* Ajusta el espacio entre el separador visual y el botón */
+}
+
+/* Estilos para el botón de borrar línea */
+.boton-borrar-linea {
+    background-color: #dc3545; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Quitamos el borde */
+    padding: 5px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor al pasar por encima */
+    margin-left: 10px; /* Espacio a la izquierda */
+}
+
+.boton-borrar-linea:hover {
+    background-color: #c82333; /* Color de fondo al pasar el cursor */
+}
+
+
 footer {
     background-color: #343a40;
     color: #ffffff;
