@@ -18,8 +18,8 @@ h1 {
 
 main {
     padding: 20px;
+    margin-bottom: 100px; /* Ajusta este valor según el tamaño de tu footer */
 }
-
 #productosCarta,
 #comanda {
     margin-bottom: 30px;
@@ -75,4 +75,4 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
+   }
